@@ -1,7 +1,8 @@
 // db.server is use d to establish the connection
 const mongoose = require('mongoose');  //act like a bridge(mongoose export
-const mongoURL = 'mongodb://localhost:27017/hote' //define url where to define (to connect with db)
-
+require('dotenv').config();
+//const mongoURL = process.env.MONGODB_URL_LOCAL //define url where to define (to connect with db)// local url
+const mongoURL=process.env.MONGODB_URL  // YE DOTENV FILE SE AAYA HAI
 //set up mongodb connection
 mongoose.connect(mongoURL, {
     useNewUrlParser: true,

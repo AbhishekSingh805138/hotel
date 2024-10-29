@@ -12,9 +12,11 @@
 const express = require('express')
 const app = express()// app ke jagah kuch aur bhi ho sakta hai
 const db = require('./db');// for connection database
+require('dotenv').config();// ab server ko pta hai ek dot env krke ek file hai
 
 const bodyParser = require('body-parser'); 
 app.use(bodyParser.json());// store kr dega req.bpdy me
+const PORT =process.env.PORT || 3000;// isse ye hoga agr port dot env file me hoga  toh use hoga agr nhi huaa toh 30000 use krega
 
 // person model export
  //const MenuItem = require('./models/MenuItem');// menu item export
@@ -97,7 +99,7 @@ app.use('/person',personRoutes);
 app.use('/menu',menuItemRoutes);  
 
 
-app.listen(3000,()=>{
+app.listen(PORT,()=>{
     console.log("listening on port ");//isse pta chalega server jinda hai
 })
 
